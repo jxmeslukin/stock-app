@@ -1,2 +1,2 @@
-# stock-app
+# Stratton Oakmont
  software major project
