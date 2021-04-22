@@ -21,7 +21,10 @@ ul {
     padding-top: 1px;
   }
 
-  
+  h3 {
+    float: left;
+    color: white;
+  }
   
   li .textA:hover:not(.active) {
     background-color: #111;
@@ -63,15 +66,30 @@ ul {
     padding: 16px 26px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
+    float: right;
   }
-  
+
+  .clearfix:after {
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+  }
+  .clearfix {display:inline-block;}
+  /* Hide from IE Mac \*/
+  .clearfix {display:block;}
+  /* End hide from IE Mac */
   
   button:hover {
     background-color: lightcoral;
     color: #333;
+  }
+
+  * {
+    font-family: 'Source Sans Pro', sans-serif;;
   }

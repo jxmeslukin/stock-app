@@ -36,14 +36,10 @@ if(localStorage.getItem(storageIdentifier) == null) {
 setUp()
 
 function setUp() {
-    var id = 'comp1'
+    var id = 0
     for(i = 0; i < simData.listedCompanies.length; i++) {
-        id = "'comp"+(Number(id.charAt(5))+1)+"'";
-        console.log(id)
-        document.getElementById(id).innerHTML = "joe"
-        document.getElementById(id).innerHTML = simData.listedCompanies[i].name
-        
-        
+        id = id+1
+        $('#comp'+id).html(simData.listedCompanies[i].name);
     }
 }
 
