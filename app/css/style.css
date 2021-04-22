@@ -14,16 +14,16 @@ ul {
   li:last-child {
     border-right: none;
   }
+
   
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  li img {
+    padding-right: 10px;
+    padding-top: 1px;
   }
+
   
-  li a:hover:not(.active) {
+  
+  li .textA:hover:not(.active) {
     background-color: #111;
   }
   
@@ -33,4 +33,45 @@ ul {
 
   body {
       background-color: lightgrey;
+  }
+
+  .summary {
+    background-color: lightgray;
+  }
+
+  .textA {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .rect {
+    width: 70%;
+    height: 80px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 3px;
+    margin: auto;
+  }
+
+  button {
+    background-color: darkgray;
+    border: 2px solid lightcoral;
+    color: black;
+    padding: 16px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  
+  button:hover {
+    background-color: lightcoral;
+    color: #333;
   }

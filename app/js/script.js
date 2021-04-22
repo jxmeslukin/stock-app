@@ -8,7 +8,6 @@ Created by James Lukin, Zac Bolt - 2021
 var storageIdentifier = 'stratton'
 var simData = {}
 
-
 if(localStorage.getItem(storageIdentifier) == null) {
     simData = {
         money : 50000,
@@ -18,19 +17,36 @@ if(localStorage.getItem(storageIdentifier) == null) {
         listedCompanies : []
     }
 
-    simData.listedCompanies.push({name : Google, value : [8765]})
-    simData.listedCompanies.push({name : Amazon, value : [5358]})
-    simData.listedCompanies.push({name : Tesla, value : [6389]})
-    simData.listedCompanies.push({name : Microsoft, value : [9231]})
-    simData.listedCompanies.push({name : Facebook, value : [2426]})
-    simData.listedCompanies.push({name : Netflix, value : [4653]})
-    simData.listedCompanies.push({name : Disney, value : [6678]})
-    simData.listedCompanies.push({name : Adobe, value : [8621]})
-    simData.listedCompanies.push({name : Nike, value : [4521]})
-    simData.listedCompanies.push({name : Intel, value : [1286]})
-    simData.listedCompanies.push({name : Paypal, value : [5269]})
+    simData.listedCompanies.push({name : "Google", values : [8765]});
+    simData.listedCompanies.push({name : "Amazon", values : [5358]})
+    simData.listedCompanies.push({name : "Tesla", values : [6389]})
+    simData.listedCompanies.push({name : "Microsoft", values : [9231]})
+    simData.listedCompanies.push({name : "Facebook", values : [2426]})
+    simData.listedCompanies.push({name : "Netflix", values : [4653]})
+    simData.listedCompanies.push({name : "Disney", values : [6678]})
+    simData.listedCompanies.push({name : "Adobe", values : [8621]})
+    simData.listedCompanies.push({name : "Nike", values : [4521]})
+    simData.listedCompanies.push({name : "Intel", values : [1286]})
 
     localStorage.setItem(storageIdentifier, JSON.stringify(simData))
 }else {
     simData = JSON.parse(localStorage.getItem(storageIdentifier))
+}
+
+setUp()
+
+function setUp() {
+    var id = 'comp1'
+    for(i = 0; i < simData.listedCompanies.length; i++) {
+        id = "'comp"+(Number(id.charAt(5))+1)+"'";
+        console.log(id)
+        document.getElementById(id).innerHTML = "joe"
+        document.getElementById(id).innerHTML = simData.listedCompanies[i].name
+        
+        
+    }
+}
+
+function reset() {
+    localStorage.removeItem(storageIdentifier, JSON.stringify(simData))
 }
