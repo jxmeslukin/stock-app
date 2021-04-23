@@ -7,7 +7,13 @@ Created by James Lukin, Zac Bolt - 2021
 
 var storageIdentifier = 'stratton'
 var simData = {}
+var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'AUD',
+})
 
+//checking if the player has played the simulation before
+//if not, gives the player dedicated starting values
 if(localStorage.getItem(storageIdentifier) == null) {
     simData = {
         money : 50000,
@@ -16,7 +22,8 @@ if(localStorage.getItem(storageIdentifier) == null) {
         trades : [],
         listedCompanies : []
     }
-
+    //pushing the companies into the listedCompanies array
+    //these companies then have their own properties
     simData.listedCompanies.push({name : "Google", values : [8765]});
     simData.listedCompanies.push({name : "Amazon", values : [5358]})
     simData.listedCompanies.push({name : "Tesla", values : [6389]})
@@ -33,15 +40,25 @@ if(localStorage.getItem(storageIdentifier) == null) {
     simData = JSON.parse(localStorage.getItem(storageIdentifier))
 }
 
+//calls for the setting up of the simulation
 setUp()
 
+//setting up the company and value lists onto the DOM, using a for statement for efficiency
 function setUp() {
     var id = 0
     for(i = 0; i < simData.listedCompanies.length; i++) {
         id = id+1
         $('#comp'+id).html(simData.listedCompanies[i].name);
+        $('#val'+id).html(formatter.format(simData.listedCompanies[i].values));
+        start();
     }
+
 }
+
+function start() {
+
+}
+
 
 function reset() {
     localStorage.removeItem(storageIdentifier, JSON.stringify(simData))

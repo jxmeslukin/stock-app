@@ -59,6 +59,15 @@ ul {
     margin: auto;
   }
 
+  .money-p {
+    float: left;
+    text-align: center;
+    padding-left: 1%;
+    color:seagreen;
+    line-height: 30px;
+
+  }
+
   button {
     background-color: darkgray;
     border: 2px solid lightcoral;
@@ -72,18 +81,6 @@ ul {
     cursor: pointer;
     float: right;
   }
-
-  .clearfix:after {
-    content:".";
-    display:block;
-    height:0;
-    clear:both;
-    visibility:hidden;
-  }
-  .clearfix {display:inline-block;}
-  /* Hide from IE Mac \*/
-  .clearfix {display:block;}
-  /* End hide from IE Mac */
   
   button:hover {
     background-color: lightcoral;
