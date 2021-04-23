@@ -55,7 +55,16 @@ function setUp() {
 
 }
 
+
 function start() {
+    var stockPrice = simData.listedCompanies[i].values
+
+    for(i = 0; i > simData.listedCompanies.length; i++){
+        var rand = Math.floor(Math.random() * 10) + 1
+        console.log(rand)
+    }
+
+
 
 }
 
