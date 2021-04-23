@@ -50,25 +50,51 @@ function setUp() {
         id = id+1
         $('#comp'+id).html(simData.listedCompanies[i].name);
         $('#val'+id).html(formatter.format(simData.listedCompanies[i].values));
-        start();
+        
     }
-
+    start();
 }
 
+function update(stockPrice) {
+    var id = 0
+    for(i = 0; i < simData.listedCompanies.length; i++) {
+        id = id+1
+
+        $('#val'+id).html(formatter.format(simData.listedCompanies[i].values));
+        
+    }
+}
 
 function start() {
-    var stockPrice = simData.listedCompanies[i].values
-
-    for(i = 0; i > simData.listedCompanies.length; i++){
-        var rand = Math.floor(Math.random() * 10) + 1
+    var stockPrice; 
+    var id = 0
+    for(i = 0; i < simData.listedCompanies.length; i++){
+        id=id+1
+        stockPrice = simData.listedCompanies[i].values
+        var rand = Math.round(Math.random() * 10) / 10
         console.log(rand)
+        if(rand<0.5) {
+            stockPrice = Number(stockPrice) + Number((Math.round(((Math.random() * 1000) + 1)*10) / 10))
+            $('#val'+id).html(formatter.format(stockPrice));
+
+            console.log(stockPrice)
+        }else{
+            stockPrice = Number(stockPrice) - Number((Math.round(((Math.random() * 1000) + 1)*10) / 10))
+            $('#val'+id).html(formatter.format(stockPrice));
+        }
     }
-
-
-
+    setTimeout(start,5000)
 }
 
 
 function reset() {
     localStorage.removeItem(storageIdentifier, JSON.stringify(simData))
+}
+
+function buy() {
+
+}
+
+function sell() {
+    
 }
