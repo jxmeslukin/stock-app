@@ -117,9 +117,11 @@ function start() {
         var rand = Math.round(Math.random() * 10) / 10
         if (rand < 0.5) {
             stockPrice = Number(stockPrice) + Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
+            $('#val' + id).css("color", "green")
             $('#val' + id).html(formatter.format(stockPrice));
         } else {
             stockPrice = Number(stockPrice) - Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
+            $('#val' + id).css("color", "red")
             $('#val' + id).html(formatter.format(stockPrice));
         }
     }
@@ -200,6 +202,9 @@ function sell(stock) {
     if(simData.listedCompanies[stock].amountOfStock > 0) {
         simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
         simData.listedCompanies[stock].amountOfStock = simData.listedCompanies[stock].amountOfStock - 1
+    }else{
+        alert("You have not bought this stock!")
     }
 
 }
+
