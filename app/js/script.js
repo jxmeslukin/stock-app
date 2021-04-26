@@ -20,20 +20,24 @@ if(localStorage.getItem(storageIdentifier) == null) {
         moneyInvested : 0,
         portfolioVal : 0,
         trades : [],
-        listedCompanies : []
+        listedCompanies : [],
+        stockBought : {
+            
+        }
+            
     }
     //pushing the companies into the listedCompanies array
     //these companies then have their own properties
-    simData.listedCompanies.push({name : "Google", values : [8765]});
-    simData.listedCompanies.push({name : "Amazon", values : [5358]})
-    simData.listedCompanies.push({name : "Tesla", values : [6389]})
-    simData.listedCompanies.push({name : "Microsoft", values : [9231]})
-    simData.listedCompanies.push({name : "Facebook", values : [2426]})
-    simData.listedCompanies.push({name : "Netflix", values : [4653]})
-    simData.listedCompanies.push({name : "Disney", values : [6678]})
-    simData.listedCompanies.push({name : "Adobe", values : [8621]})
-    simData.listedCompanies.push({name : "Nike", values : [4521]})
-    simData.listedCompanies.push({name : "Intel", values : [1286]})
+    simData.listedCompanies.push({name : "Google", values : [8765], amountOfStock : []}),
+    simData.listedCompanies.push({name : "Amazon", values : [5358], amountOfStock : [0]}), 
+    simData.listedCompanies.push({name : "Tesla", values : [6389], amountOfStock: [0]}),
+    simData.listedCompanies.push({name : "Microsoft", values : [9231], amountOfStock : [0]}), 
+    simData.listedCompanies.push({name : "Facebook", values : [2426], amountOfStock: [0]}), 
+    simData.listedCompanies.push({name : "Netflix", values : [4653], amountOfStock: [0]}), 
+    simData.listedCompanies.push({name : "Disney", values : [6678], amountOfStock: [0]}), 
+    simData.listedCompanies.push({name : "Adobe", values : [8621], amountOfStock: [0]}), 
+    simData.listedCompanies.push({name : "Nike", values : [4521], amountOfStock: [0]}), 
+    simData.listedCompanies.push({name : "Intel", values : [1286], amountOfStock: [0]}), 
 
     localStorage.setItem(storageIdentifier, JSON.stringify(simData))
 }else {
@@ -72,29 +76,62 @@ function start() {
         id=id+1
         stockPrice = simData.listedCompanies[i].values
         var rand = Math.round(Math.random() * 10) / 10
-        console.log(rand)
         if(rand<0.5) {
             stockPrice = Number(stockPrice) + Number((Math.round(((Math.random() * 1000) + 1)*10) / 10))
             $('#val'+id).html(formatter.format(stockPrice));
-
-            console.log(stockPrice)
         }else{
             stockPrice = Number(stockPrice) - Number((Math.round(((Math.random() * 1000) + 1)*10) / 10))
             $('#val'+id).html(formatter.format(stockPrice));
         }
     }
-    setTimeout(start,5000)
+    setTimeout(start,7000)
 }
 
-
+//resets the localstorage object
 function reset() {
     localStorage.removeItem(storageIdentifier, JSON.stringify(simData))
 }
 
-function buy() {
+var tradeTick = 0
+//buys the stock at the current market price
+function buy(stock) {
+
+    /*
+    console.log(simData.listedCompanies[stock].name)
+    console.log(simData.listedCompanies[stock].values)
+    simData.money = Number(simData.money) - Number(simData.listedCompanies[stock].values)
+    simData.listedCompanies[stock].push({
+        amountOfStock : []
+    })
+    simData.listedCompanies[stock].amountOfStock = simData.listedCompanies[stock].amountOfStock + 1
+    simData.trades.push({ 
+        identifier : stock,
+        name : simData.listedCompanies[stock].name,
+        buyVal : simData.listedCompanies[stock].values,
+        sellVal : [],
+    })
+
+    
+    var stockAdd = 0;
+    simData.money = Number(simData.money) - Number(simData.listedCompanies[stock].values)
+    stockAdd = Number(simData.listedCompanies[stock].amountOfStock)
+    stockAdd = stockAdd + 1
+    simData.listedCompanies[stock].amountOfStock = stockAdd
+    console.log(simData.listedCompanies[stock].amountOfStock)
+*/
+    
 
 }
 
-function sell() {
-    
+//sells the stock at the current market price
+function sell(stock) {
+
+    if((simData.trades[stock].name == simData.listedCompanies[stock].name) && simData.trades[stock].amountOfStock > 0) {
+    simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
+    simData.trades[stock].amountOfStock = Number(simData.trades[stock].amountOfStock) - 1
+    simData.trades[stock].sellVal = [simData.listedCompanies[stock].values]
+    console.log(simData.money)
+    }else{
+        console.log("have not bought")
+    }
 }
