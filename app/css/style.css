@@ -63,7 +63,6 @@ ul {
     float: left;
     text-align: center;
     padding-left: 1%;
-    color:seagreen;
     line-height: 30px;
 
   }
@@ -81,7 +80,20 @@ ul {
     cursor: pointer;
     float: right;
   }
+
+  .sumbox {
+    width: 60%;
+    height: 40px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 3px;
+    margin: auto;
+  }
   
+  .sumtext {
+    line-height: 20px;
+  }
+
   button:hover {
     background-color: lightcoral;
     color: #333;

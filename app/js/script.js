@@ -20,10 +20,6 @@ if (localStorage.getItem(storageIdentifier) == null) {
         portfolioVal: 0,
         trades: [],
         listedCompanies: [],
-        stockBought: {
-
-        }
-
     }
     //pushing the companies into the listedCompanies array
     //these companies then have their own properties
@@ -109,11 +105,10 @@ function update(stockPrice) {
 }
 
 function start() {
-    var stockPrice;
     var id = 0
     for (i = 0; i < simData.listedCompanies.length; i++) {
         id = id + 1
-        stockPrice = simData.listedCompanies[i].values
+        var stockPrice = simData.listedCompanies[i].values
         var rand = Math.round(Math.random() * 10) / 10
         if (rand < 0.5) {
             stockPrice = Number(stockPrice) + Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
@@ -177,9 +172,11 @@ function buy(stock) {
             simData.listedCompanies[stock].amountOfStock = 0
         }
 
-        simData.listedCompanies[stock].amountOfStock = simData.listedCompanies[stock].amountOfStock + 1
+        simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) + 1
 
         console.log(simData.listedCompanies[stock].amountOfStock)
+
+        localStorage.setItem(storageIdentifier, JSON.stringify(simData))
     }else{
         alert("Not enough money to buy this stock!")
         return
@@ -201,7 +198,8 @@ function sell(stock) {
 
     if(simData.listedCompanies[stock].amountOfStock > 0) {
         simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
-        simData.listedCompanies[stock].amountOfStock = simData.listedCompanies[stock].amountOfStock - 1
+        simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) - 1
+        localStorage.setItem(storageIdentifier, JSON.stringify(simData))
     }else{
         alert("You have not bought this stock!")
     }
