@@ -91,17 +91,11 @@ function setUp() {
         $('#val' + id).html(formatter.format(simData.listedCompanies[i].values));
 
     }
+    $('#mon').html(formatter.format(simData.money));
+    $('#monInv').html(formatter.format(simData.moneyInvested));
+    $('#portVal').html(formatter.format(simData.portfolioVal));
+
     start();
-}
-
-function update(stockPrice) {
-    var id = 0
-    for (i = 0; i < simData.listedCompanies.length; i++) {
-        id = id + 1
-
-        $('#val' + id).html(formatter.format(simData.listedCompanies[i].values));
-
-    }
 }
 
 function start() {
@@ -112,12 +106,16 @@ function start() {
         var rand = Math.round(Math.random() * 10) / 10
         if (rand < 0.5) {
             stockPrice = Number(stockPrice) + Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
+            simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "green")
             $('#val' + id).html(formatter.format(stockPrice));
+            simData.portfolioVal = (Number(simData.listedCompanies[i].amountOfStock) * Number(simData.listedCompanies[i].values)) + Number(simData.portfolioVal)
         } else {
             stockPrice = Number(stockPrice) - Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
+            simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "red")
             $('#val' + id).html(formatter.format(stockPrice));
+            simData.portfolioVal = (Number(simData.listedCompanies[i].amountOfStock) * Number(simData.listedCompanies[i].values)) + Number(simData.portfolioVal)
         }
     }
     setTimeout(start, 7000)
@@ -172,11 +170,21 @@ function buy(stock) {
             simData.listedCompanies[stock].amountOfStock = 0
         }
 
+        simData.portfolioVal = (Number(simData.listedCompanies[stock].amountOfStock) * Number(simData.listedCompanies[stock].values)) + Number(simData.portfolioVal)
+
         simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) + 1
 
         console.log(simData.listedCompanies[stock].amountOfStock)
 
+        simData.moneyInvested = Number(simData.moneyInvested) + Number(simData.listedCompanies[stock].values)
+
         localStorage.setItem(storageIdentifier, JSON.stringify(simData))
+
+        $('#mon').html(formatter.format(simData.money));
+        $('#monInv').html(formatter.format(simData.moneyInvested));
+        $('#portVal').html(formatter.format(simData.portfolioVal));
+
+        
     }else{
         alert("Not enough money to buy this stock!")
         return
@@ -200,6 +208,11 @@ function sell(stock) {
         simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
         simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) - 1
         localStorage.setItem(storageIdentifier, JSON.stringify(simData))
+        simData.moneyInvested = Number(simData.moneyInvested) - Number(simData.listedCompanies[stock].values)
+        simData.portfolioVal = (Number(simData.listedCompanies[stock].amountOfStock) * Number(simData.listedCompanies[i].values)) + Number(simData.portfolioVal)
+        $('#mon').html(formatter.format(simData.money));
+        $('#monInv').html(formatter.format(simData.moneyInvested));
+        $('#portVal').html(formatter.format(simData.portfolioVal));
     }else{
         alert("You have not bought this stock!")
     }

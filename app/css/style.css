@@ -63,7 +63,7 @@ ul {
     float: left;
     text-align: center;
     padding-left: 1%;
-    line-height: 30px;
+    line-height: 40px;
 
   }
 
@@ -91,7 +91,11 @@ ul {
   }
   
   .sumtext {
-    line-height: 20px;
+    line-height:1px;
+    float: left;
+    text-align: center;
+    color: white;
+    padding-left: 4%;
   }
 
   button:hover {
