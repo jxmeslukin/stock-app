@@ -26,7 +26,7 @@ if (localStorage.getItem(storageIdentifier) == null) {
     simData.listedCompanies.push({
             name: "Google",
             values: [8765],
-            amountOfStock: [1]
+            amountOfStock: [0]
         }),
         simData.listedCompanies.push({
             name: "Amazon",
@@ -109,13 +109,15 @@ function start() {
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "green")
             $('#val' + id).html(formatter.format(stockPrice));
-            simData.portfolioVal = (Number(simData.listedCompanies[i].amountOfStock) * Number(simData.listedCompanies[i].values)) + Number(simData.portfolioVal)
+            simData.portfolioVal = Number(simData.portfolioVal) + (Number(simData.listedCompanies[i].amountOfStock) * Number(simData.listedCompanies[i].values))
+            $('#portVal').html(formatter.format(simData.portfolioVal));
         } else {
             stockPrice = Number(stockPrice) - Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "red")
             $('#val' + id).html(formatter.format(stockPrice));
             simData.portfolioVal = (Number(simData.listedCompanies[i].amountOfStock) * Number(simData.listedCompanies[i].values)) + Number(simData.portfolioVal)
+            $('#portVal').html(formatter.format(simData.portfolioVal));
         }
     }
     setTimeout(start, 7000)
@@ -207,9 +209,9 @@ function sell(stock) {
     if(simData.listedCompanies[stock].amountOfStock > 0) {
         simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
         simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) - 1
-        localStorage.setItem(storageIdentifier, JSON.stringify(simData))
         simData.moneyInvested = Number(simData.moneyInvested) - Number(simData.listedCompanies[stock].values)
-        simData.portfolioVal = (Number(simData.listedCompanies[stock].amountOfStock) * Number(simData.listedCompanies[i].values)) + Number(simData.portfolioVal)
+        simData.portfolioVal = Number(simData.portfolioVal) -  
+        localStorage.setItem(storageIdentifier, JSON.stringify(simData))
         $('#mon').html(formatter.format(simData.money));
         $('#monInv').html(formatter.format(simData.moneyInvested));
         $('#portVal').html(formatter.format(simData.portfolioVal));
@@ -219,3 +221,24 @@ function sell(stock) {
 
 }
 
+let binarySearch = function (arr, x, start, end) {
+       
+    // Base Condition
+    if (start > end) return false;
+   
+    // Find the middle index
+    let mid=Math.floor((start + end)/2);
+   
+    // Compare mid with given key x
+    if (arr[mid]===x) return true;
+          
+    // If element at mid is greater than x,
+    // search in the left half of mid
+    if(arr[mid] > x) 
+        return binarySearch(arr, x, start, mid-1);
+    else
+  
+        // If element at mid is smaller than x,
+        // search in the right half of mid
+        return binarySearch(arr, x, mid+1, end);
+}
