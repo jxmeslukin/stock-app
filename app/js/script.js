@@ -11,6 +11,12 @@ var formatter = new Intl.NumberFormat('en-US', {
     currency: 'AUD',
 })
 
+$('#search').keyup(function() {
+     var searchInput = this.value;
+     console.log(searchInput);
+     search(searchInput);
+});
+
 //checking if the player has played the simulation before
 //if not, gives the player dedicated starting values
 if (localStorage.getItem(storageIdentifier) == null) {
@@ -221,18 +227,35 @@ function sell(stock) {
 
 }
 
+
+
+
+function search(x) {
+    var arr = []
+    for(i=0;i<simData.listedCompanies.length;i++){
+        arr.push(simData.listedCompanies[i].name) 
+    }
+    arr.sort();
+    var start = 0
+    var end = arr.length - 1
+    binarySearch(arr,x,start,end);
+}
+
+
+console.log(arr)
+
 let binarySearch = function (arr, x, start, end) {
        
-    // Base Condition
+    // base Condition
     if (start > end) return false;
    
-    // Find the middle index
+    // find the middle index
     let mid=Math.floor((start + end)/2);
    
-    // Compare mid with given key x
+    // compare mid with given key x
     if (arr[mid]===x) return true;
           
-    // If element at mid is greater than x,
+    // if element at mid is greater than x,
     // search in the left half of mid
     if(arr[mid] > x) 
         return binarySearch(arr, x, start, mid-1);
