@@ -238,7 +238,9 @@ function search(x) {
     arr.sort();
     var start = 0
     var end = arr.length - 1
-    binarySearch(arr,x,start,end);
+    if(binarySearch(arr,x,start,end)){
+        
+    }
 }
 
 
