@@ -228,24 +228,6 @@ function sell(stock) {
 }
 
 
-
-
-function search(x) {
-    var arr = []
-    for(i=0;i<simData.listedCompanies.length;i++){
-        arr.push(simData.listedCompanies[i].name) 
-    }
-    arr.sort();
-    var start = 0
-    var end = arr.length - 1
-    if(binarySearch(arr,x,start,end)){
-        
-    }
-}
-
-
-console.log(arr)
-
 let binarySearch = function (arr, x, start, end) {
        
     // base Condition
@@ -263,7 +245,38 @@ let binarySearch = function (arr, x, start, end) {
         return binarySearch(arr, x, start, mid-1);
     else
   
-        // If element at mid is smaller than x,
+        // if element at mid is smaller than x,
         // search in the right half of mid
         return binarySearch(arr, x, mid+1, end);
 }
+
+function search(x) {
+    var arr = []
+    for(i=0;i<simData.listedCompanies.length;i++){
+        arr.push(simData.listedCompanies[i].name) 
+    }
+    arr.sort();
+    var start = 0
+    var end = arr.length - 1
+    if(binarySearch(arr,x,start,end)){
+        console.log("found");
+        for(i=0;i<arr.length;i++){
+            if(x == simData.listedCompanies[i].name){
+                $('#stock' + i).show();
+            }else{
+                $('#stock' + i).hide();
+            }
+        }
+            
+    }else if(x == ""){
+        console.log("blank")
+        for(i=0;i<simData.listedCompanies.length;i++){
+            $('#stock' + i).show();
+            console.log(i);
+        }
+    }
+}
+
+
+
+

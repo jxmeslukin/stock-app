@@ -107,6 +107,7 @@ ul {
     background-color: darkgray;
     color: white;
     font-size: 17px;
+    margin-right: 15px;
   }
 
   button:hover {
