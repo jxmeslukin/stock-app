@@ -15,7 +15,16 @@ ul {
     border-right: none;
   }
 
-  
+  h1.abth1 {
+    text-align: center;
+    margin: auto;
+  }
+
+  h2.ContactDetails1 {
+    text-align: center;
+    margin:auto;
+  }
+
   li img {
     padding-right: 10px;
     padding-top: 1px;
