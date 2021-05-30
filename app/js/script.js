@@ -32,52 +32,62 @@ if (localStorage.getItem(storageIdentifier) == null) {
     simData.listedCompanies.push({
             name: "Google",
             values: [8765],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Amazon",
             values: [5358],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Tesla",
             values: [6389],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Microsoft",
             values: [9231],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Facebook",
             values: [2426],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Netflix",
             values: [4653],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Disney",
             values: [6678],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Adobe",
             values: [8621],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Nike",
             values: [4521],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
         simData.listedCompanies.push({
             name: "Intel",
             values: [1286],
-            amountOfStock: [0]
+            amountOfStock: [0],
+            buyIn: 0
         }),
 
         localStorage.setItem(storageIdentifier, JSON.stringify(simData))
@@ -88,7 +98,7 @@ if (localStorage.getItem(storageIdentifier) == null) {
 //calls for the setting up of the simulation
 setUp()
 
-//setting up the company and value lists onto the DOM, using a for statement for efficiency
+//setting up the company and value lists onto the DOM, using a for statement for efficiency and automation
 function setUp() {
     var id = 0
     for (i = 0; i < simData.listedCompanies.length; i++) {
@@ -104,20 +114,33 @@ function setUp() {
     start();
 }
 
+
+//starts the simulation
 function start() {
     var id = 0
+    //loops through the amount of listed companies, and changes their 'stock' value based on a random number
     for (i = 0; i < simData.listedCompanies.length; i++) {
         id = id + 1
         var stockPrice = simData.listedCompanies[i].values
         var rand = Math.round(Math.random() * 10) / 10
         if (rand < 0.5) {
+            //increases the stock price by $0 (not inclusive) to $1000
             stockPrice = Number(stockPrice) + Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "green")
             $('#val' + id).html(formatter.format(stockPrice));
-            simData.portfolioVal = Number(simData.portfolioVal) + (Number(simData.listedCompanies[i].amountOfStock) * Number(simData.listedCompanies[i].values))
+            simData.portfolioVal = Number(simData.portfolioVal) + Number(simData.listedCompanies[i].values - Number(simData.listedCompanies[i].buyIn));
             $('#portVal').html(formatter.format(simData.portfolioVal));
+
+            // port val - current changed value
+            // invest val - static money put in or taken out 
+
+
+
+
+
         } else {
+            //decreases the stock price by $0 (not inclusive) to $1000
             stockPrice = Number(stockPrice) - Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "red")
@@ -129,12 +152,11 @@ function start() {
     setTimeout(start, 7000)
 }
 
-//resets the localstorage object
+//resets the localstorage object - restarting the simulation after refresh
 function reset() {
     localStorage.removeItem(storageIdentifier, JSON.stringify(simData))
 }
 
-var tradeTick = 0
 //buys the stock at the current market price
 function buy(stock) {
 
@@ -162,7 +184,7 @@ function buy(stock) {
     console.log(simData.listedCompanies[stock].amountOfStock)
 */
 
-
+    // defining if the user has enough money to buy the stock
     if (simData.money > simData.listedCompanies[stock].values) {
         simData.money = Number(simData.money) - Number(simData.listedCompanies[stock].values)
 
@@ -174,17 +196,22 @@ function buy(stock) {
             sellVal: [],
         })
 
+
+
         if (simData.listedCompanies[stock].amountOfStock == null) {
             simData.listedCompanies[stock].amountOfStock = 0
         }
 
-        simData.portfolioVal = (Number(simData.listedCompanies[stock].amountOfStock) * Number(simData.listedCompanies[stock].values)) + Number(simData.portfolioVal)
+
+        simData.listedCompanies[stock].buyIn = Number(simData.listedCompanies[stock].buyIn) + simData.listedCompanies[stock].values;
+
+        simData.portfolioVal = Number(simData.portfolioVal) + Number(simData.listedCompanies[stock].values);
 
         simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) + 1
 
         console.log(simData.listedCompanies[stock].amountOfStock)
 
-        simData.moneyInvested = Number(simData.moneyInvested) + Number(simData.listedCompanies[stock].values)
+        simData.moneyInvested = Number(simData.moneyInvested) + Number(simData.listedCompanies[stock].values);
 
         localStorage.setItem(storageIdentifier, JSON.stringify(simData))
 
@@ -212,11 +239,12 @@ function sell(stock) {
     }
     */
 
+    //if the user owns more than 0 stock, they are enabled to sell it
     if(simData.listedCompanies[stock].amountOfStock > 0) {
         simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
         simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) - 1
-        simData.moneyInvested = Number(simData.moneyInvested) - Number(simData.listedCompanies[stock].values)
-        simData.portfolioVal = Number(simData.portfolioVal) -  
+        simData.moneyInvested = Number(simData.moneyInvested) - Number(simData.listedCompanies[stock].values) //work out to change original buy in val
+        simData.portfolioVal = Number(simData.portfolioVal) - Number(simData.listedCompanies[stock].values);
         localStorage.setItem(storageIdentifier, JSON.stringify(simData))
         $('#mon').html(formatter.format(simData.money));
         $('#monInv').html(formatter.format(simData.moneyInvested));
@@ -227,19 +255,19 @@ function sell(stock) {
 
 }
 
-
+//binary search for a listed company
 let binarySearch = function (arr, x, start, end) {
        
-    // base Condition
+    // the base condition
     if (start > end) return false;
    
-    // find the middle index
+    // finding the middle index to distinguish item in array
     let mid=Math.floor((start + end)/2);
    
-    // compare mid with given key x
-    if (arr[mid]===x) return true;
+    // compare mid with given key x (the company)
+    if (arr[mid] === x) return true;
           
-    // if element at mid is greater than x,
+    // if company at mid is greater than x,
     // search in the left half of mid
     if(arr[mid] > x) 
         return binarySearch(arr, x, start, mid-1);
@@ -250,10 +278,11 @@ let binarySearch = function (arr, x, start, end) {
         return binarySearch(arr, x, mid+1, end);
 }
 
+//function to then execute search order once the user starts typing
 function search(x) {
     var arr = []
     for(i=0;i<simData.listedCompanies.length;i++){
-        arr.push(simData.listedCompanies[i].name) 
+        arr.push(simData.listedCompanies[i].name);
     }
     arr.sort();
     var start = 0
@@ -275,12 +304,13 @@ function search(x) {
     }
 }
 
+//sorting an array via insertion
 function insertionSort(inputArr) {
     let n = inputArr.length;
         for (let i = 1; i < n; i++) {
-            // Choosing the first element in our unsorted subarray
+            // choosing the first element in the unsorted subarray
             let current = inputArr[i];
-            // The last element of our sorted subarray
+            // the last element of the sorted subarray
             let j = i-1; 
             while ((j > -1) && (current < inputArr[j])) {
                 inputArr[j+1] = inputArr[j];
