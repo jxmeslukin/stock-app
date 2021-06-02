@@ -1,0 +1,219 @@
+commit 3422131c13994669098263ac82f587adaff22f87
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 2 12:19:26 2021 +1000
+
+    indents
+
+commit 507cb5c991ff7bbba3dcba28ef70d231b53b8f14
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 2 11:39:59 2021 +1000
+
+    graphics
+
+commit b3ce2dec2fe83680656712b38ed15d8ae232d402
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 2 11:34:19 2021 +1000
+
+    Update script.js
+
+commit 225eb6d612ae0bb39c1c539847bdb16a2629745b
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 2 11:33:42 2021 +1000
+
+    added documentation
+
+commit ca97015f0753e4ee0915ceb8c2aec1f2e1bd72ee
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 31 09:19:54 2021 +1000
+
+    about page fixed
+
+commit 759b088526e022ce33c470c35deee8a6b11e69c4
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 31 09:07:03 2021 +1000
+
+    Update about.html
+
+commit 01a20ceece17b3320adb36f6124ddc393e4f8a1a
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 31 09:03:23 2021 +1000
+
+    fix up
+
+commit 4e50902df173c32a1e17976c94c69c66f8c1c37d
+Merge: 3fe495b 5d3b54b
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 31 08:56:29 2021 +1000
+
+    Merge branch 'main' of https://github.com/jxmeslukin/stock-app into main
+
+commit 3fe495b6d18bb81c1c29ddb498aaa6d8dbb186c9
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 31 08:56:23 2021 +1000
+
+    extra stuff
+
+commit 5d3b54b01f8aa94ce9b423ce30d43a5c74dab6c8
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Fri May 28 14:55:09 2021 +1000
+
+    m
+    
+    idk
+
+commit 8b593a90bf25a0aafc171ab5a5e2154dbe6024b4
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed May 19 12:39:40 2021 +1000
+
+    Update index.html
+
+commit 7bbf983c368f44d3def371b2fc09156bb44f9afb
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed May 19 12:25:32 2021 +1000
+
+    sorting
+
+commit ae9e03fe901498b8b4bde562442517cd43f540cb
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 17 09:19:32 2021 +1000
+
+    abt page
+
+commit 7cef64b9c7e3d8cfaf22f731585e1e966526e698
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 17 09:18:00 2021 +1000
+
+    about page
+
+commit e012ffe0b01af5899077beb2eac7a1b4b2c70e2c
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 17 09:14:36 2021 +1000
+
+    binary search finished
+
+commit 966cb5e6f5f67fbb5e1852ee2eb1a0ac576afde5
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon May 17 08:38:26 2021 +1000
+
+    Update script.js
+
+commit 3db5f6827edd14b47f5e9fb56a12c827cefcb82a
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Fri May 14 15:17:38 2021 +1000
+
+    binary search improvements
+
+commit 807dc20715cba86157b0a44b377226c5dd59f558
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Fri May 14 14:43:56 2021 +1000
+
+    binary search
+
+commit bd0c155e1389f61e043ac76313143cc167874299
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Tue Apr 27 13:38:59 2021 +1000
+
+    summary now working
+
+commit b7e01b6a67ec076b6c3b453e079027256a46ffb3
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Tue Apr 27 09:35:32 2021 +1000
+
+    fixing up
+
+commit c53fad4274cc30f366c0ddd889a1c29b11630998
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 26 14:00:34 2021 +1000
+
+    selling func
+
+commit c5580cc8dcc729100988be3c4882ad0bba69357a
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 26 13:51:43 2021 +1000
+
+    fixed buying and selling functions
+
+commit de0ee99797f344d254d936bbeec935ca0b8b4df3
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 26 13:34:01 2021 +1000
+
+    few changes - buy function in works
+
+commit 77b2a504308002e7388da098b1c44305adcf7768
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Fri Apr 23 13:51:19 2021 +1000
+
+    adding time for stocks to decrease or increase
+
+commit b36f2d3c528c95ebf0102d0f2265e0115f29ef01
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Fri Apr 23 11:44:18 2021 +1000
+
+    start func declared
+
+commit 7d650d7ae98c935282d472edc0f4793c56677338
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Fri Apr 23 11:25:02 2021 +1000
+
+    setting up the DOM and divs properly, added buttons and values
+
+commit a963ae784d48e238e55f9ac171ea5760f8b59819
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Fri Apr 23 09:40:03 2021 +1000
+
+    setting floats of buttons and aligning in div
+
+commit caa691ca0ac24e662ff457fd0f8d4a3cb5c2c8c6
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Fri Apr 23 08:44:19 2021 +1000
+
+    new divs and adding some resources
+
+commit 2853a6e1ecb677e79d157b3df3dcb182d7bb60b7
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Thu Apr 22 15:20:59 2021 +1000
+
+    added nav bar and working on summary bar
+
+commit d3e92d208d91cfae8c16d174d42268a43c759939
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Apr 21 09:23:44 2021 +1000
+
+    Update script.js
+
+commit 2ff3b121d7a39f27b954861e43009750207b67f3
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 19 14:31:36 2021 +1000
+
+    Update index.html
+
+commit ef170ac53c86ef0c6cd1c12f0d2540eaf404f098
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 19 09:47:10 2021 +1000
+
+    Create .DS_Store
+
+commit 3b7828ed3f1f415216d8236a94e3d7d13312f4e3
+Merge: 2fa8c96 e69592f
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 19 09:39:24 2021 +1000
+
+    Merge branch 'main' of https://github.com/jxmeslukin/stock-app into main
+
+commit 2fa8c96fc53f85e49936a14e0ca5980eb9a0a1bd
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 19 09:39:23 2021 +1000
+
+    initial
+
+commit e69592f08797edf125383a43cf8a9ec3a8d823e7
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 19 09:33:29 2021 +1000
+
+    Update README.md
+
+commit 94e6ff1bd548d5ffc6a09e8b80427daaaed711cf
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Apr 19 09:19:48 2021 +1000
+
+    Initial commit
