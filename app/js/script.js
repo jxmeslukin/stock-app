@@ -129,7 +129,7 @@ function start() {
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "green")
             $('#val' + id).html(formatter.format(stockPrice));
-            simData.portfolioVal = Number(simData.portfolioVal) + Number(simData.listedCompanies[i].values - Number(simData.listedCompanies[i].buyIn));
+            simData.portfolioVal = Number(simData.portfolioVal) + (Number(simData.listedCompanies[i].values - Number(simData.listedCompanies[i].buyIn)));
             $('#portVal').html(formatter.format(simData.portfolioVal));
 
             // port val - current changed value
