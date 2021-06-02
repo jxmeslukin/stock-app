@@ -33,61 +33,61 @@ if (localStorage.getItem(storageIdentifier) == null) {
             name: "Google",
             values: [8765],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Amazon",
             values: [5358],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Tesla",
             values: [6389],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Microsoft",
             values: [9231],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Facebook",
             values: [2426],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Netflix",
             values: [4653],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Disney",
             values: [6678],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Adobe",
             values: [8621],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Nike",
             values: [4521],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
         simData.listedCompanies.push({
             name: "Intel",
             values: [1286],
             amountOfStock: [0],
-            buyIn: 0
+            buyIn: [0]
         }),
 
         localStorage.setItem(storageIdentifier, JSON.stringify(simData))
@@ -129,7 +129,7 @@ function start() {
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "green")
             $('#val' + id).html(formatter.format(stockPrice));
-            simData.portfolioVal = Number(simData.portfolioVal) + Number(simData.listedCompanies[i].values - Number(simData.listedCompanies[i].buyIn));
+            simData.portfolioVal = Number(simData.portfolioVal) + (Number(simData.listedCompanies[i].values - Number(simData.listedCompanies[i].buyIn)));
             $('#portVal').html(formatter.format(simData.portfolioVal));
 
             // port val - current changed value
