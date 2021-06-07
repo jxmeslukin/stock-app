@@ -12,9 +12,9 @@ var formatter = new Intl.NumberFormat('en-US', {
 })
 
 $('#search').keyup(function() {
-     var searchInput = this.value;
-     console.log(searchInput);
-     search(searchInput);
+    var searchInput = this.value;
+    console.log(searchInput);
+    search(searchInput);
 });
 
 //checking if the player has played the simulation before
@@ -135,6 +135,7 @@ function start() {
             // port val - current changed value
             // invest val - static money put in or taken out 
 
+            data.values.push
 
 
 
@@ -219,8 +220,8 @@ function buy(stock) {
         $('#monInv').html(formatter.format(simData.moneyInvested));
         $('#portVal').html(formatter.format(simData.portfolioVal));
 
-        
-    }else{
+
+    } else {
         alert("Not enough money to buy this stock!")
         return
     }
@@ -240,7 +241,7 @@ function sell(stock) {
     */
 
     //if the user owns more than 0 stock, they are enabled to sell it
-    if(simData.listedCompanies[stock].amountOfStock > 0) {
+    if (simData.listedCompanies[stock].amountOfStock > 0) {
         simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
         simData.listedCompanies[stock].amountOfStock = Number(simData.listedCompanies[stock].amountOfStock) - 1
         simData.moneyInvested = Number(simData.moneyInvested) - Number(simData.listedCompanies[stock].values) //work out to change original buy in val
@@ -249,55 +250,55 @@ function sell(stock) {
         $('#mon').html(formatter.format(simData.money));
         $('#monInv').html(formatter.format(simData.moneyInvested));
         $('#portVal').html(formatter.format(simData.portfolioVal));
-    }else{
+    } else {
         alert("You have not bought this stock!")
     }
 
 }
 
 //binary search for a listed company
-let binarySearch = function (arr, x, start, end) {
-       
+let binarySearch = function(arr, x, start, end) {
+
     // the base condition
     if (start > end) return false;
-   
+
     // finding the middle index to distinguish item in array
-    let mid=Math.floor((start + end)/2);
-   
+    let mid = Math.floor((start + end) / 2);
+
     // compare mid with given key x (the company)
     if (arr[mid] === x) return true;
-          
+
     // if company at mid is greater than x,
     // search in the left half of mid
-    if(arr[mid] > x) 
-        return binarySearch(arr, x, start, mid-1);
+    if (arr[mid] > x)
+        return binarySearch(arr, x, start, mid - 1);
     else
-  
+
         // if element at mid is smaller than x,
         // search in the right half of mid
-        return binarySearch(arr, x, mid+1, end);
+        return binarySearch(arr, x, mid + 1, end);
 }
 
 //function to then execute search order once the user starts typing
 function search(x) {
     var arr = []
-    for(i=0;i<simData.listedCompanies.length;i++){
+    for (i = 0; i < simData.listedCompanies.length; i++) {
         arr.push(simData.listedCompanies[i].name);
     }
     arr.sort();
     var start = 0
     var end = arr.length - 1
-    if(binarySearch(arr,x,start,end)){
-        for(i=0;i<arr.length;i++){
-            if(x == simData.listedCompanies[i].name){
+    if (binarySearch(arr, x, start, end)) {
+        for (i = 0; i < arr.length; i++) {
+            if (x == simData.listedCompanies[i].name) {
                 $('#stock' + i).show();
-            }else{
+            } else {
                 $('#stock' + i).hide();
             }
         }
-            
-    }else if(x == ""){
-        for(i=0;i<simData.listedCompanies.length;i++){
+
+    } else if (x == "") {
+        for (i = 0; i < simData.listedCompanies.length; i++) {
             $('#stock' + i).show();
             console.log(i);
         }
@@ -307,16 +308,16 @@ function search(x) {
 //sorting an array via insertion
 function insertionSort(inputArr) {
     let n = inputArr.length;
-        for (let i = 1; i < n; i++) {
-            // choosing the first element in the unsorted subarray
-            let current = inputArr[i];
-            // the last element of the sorted subarray
-            let j = i-1; 
-            while ((j > -1) && (current < inputArr[j])) {
-                inputArr[j+1] = inputArr[j];
-                j--;
-            }
-            inputArr[j+1] = current;
+    for (let i = 1; i < n; i++) {
+        // choosing the first element in the unsorted subarray
+        let current = inputArr[i];
+        // the last element of the sorted subarray
+        let j = i - 1;
+        while ((j > -1) && (current < inputArr[j])) {
+            inputArr[j + 1] = inputArr[j];
+            j--;
         }
+        inputArr[j + 1] = current;
+    }
     return inputArr;
 }
