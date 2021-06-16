@@ -135,7 +135,7 @@ function start() {
             // port val - current changed value
             // invest val - static money put in or taken out 
 
-            data.values.push
+            //data.values.push
 
 
 
