@@ -165,8 +165,13 @@ ul {
     all: revert;
   }
 
-  .date {
-    text-align: left;
+  .linebreak1 {
+    font-size: 5px;
+  }
+
+  #date {
+    text-align: right;
     text-decoration: black;
+    margin-left: auto;
 
   }
