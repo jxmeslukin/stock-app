@@ -164,3 +164,9 @@ ul {
   .remove-styles {
     all: revert;
   }
+
+  .date {
+    text-align: left;
+    text-decoration: black;
+
+  }
