@@ -1,3 +1,110 @@
+commit 04c952fcd85fd75be7683a1a36a045cec25ad51a
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Aug 2 22:06:45 2021 +1000
+
+    documentation
+
+commit d64a307f5539f934a3b76b96695509595e94f96f
+Merge: 2eafd3c c606959
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Mon Aug 2 21:36:52 2021 +1000
+
+    Merge branch 'main' of https://github.com/jxmeslukin/stock-app into main
+
+commit c6069594de7e85eeed0ea6ea7fcdd76897359865
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Aug 2 21:16:52 2021 +1000
+
+    bug fixing
+
+commit 2eafd3ca7b4d1d15852932a4a4ac9416982c00af
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Mon Aug 2 14:08:05 2021 +1000
+
+    Update style.css
+    
+    ignore
+
+commit 19ab2d28516e982da283c7cddc1d96183321e89e
+Merge: 248ecb5 0826dae
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 16 12:38:29 2021 +1000
+
+    Merge branch 'main' of https://github.com/jxmeslukin/stock-app into main
+
+commit 248ecb5c36af269fcd7cb4fc1fce70a810153c20
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 16 12:38:18 2021 +1000
+
+    Update script.js
+
+commit 0826dae7d1d06995d07a0d5e03e7ca7f53fe4106
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Wed Jun 16 11:50:33 2021 +1000
+
+    fixed date
+
+commit d6e74f6ae7c14c8113e5cfc10bb07e2e943bbb42
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Wed Jun 16 11:20:52 2021 +1000
+
+    date
+
+commit 2d38ba4ad45df0e6e159ce30c6bf55dbfbdb2d14
+Merge: ecabeb0 db2a9ca
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Mon Jun 7 14:20:39 2021 +1000
+
+    Merge branch 'main' of https://github.com/jxmeslukin/stock-app into main
+
+commit db2a9caf8f3feff7b11be886bd92ce42b7525624
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Mon Jun 7 14:18:19 2021 +1000
+
+    flowchart
+
+commit ecabeb090aa7aa32ab0cc61ecf387396c01b7c99
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Thu Jun 3 14:31:30 2021 +1000
+
+    creating a date
+    
+    d
+
+commit eb51d7a43e22e497aed75987bf4073065b467bb0
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 2 12:50:25 2021 +1000
+
+    commit log - will differ
+
+commit 45c9dcd81e34b5346611847ab3eb7d90a754b67b
+Merge: 3422131 3dabf76
+Author: jxmeslukin <jimmy.lukin@gmail.com>
+Date:   Wed Jun 2 12:50:09 2021 +1000
+
+    Merge branch 'main' of https://github.com/jxmeslukin/stock-app into main
+
+commit 3dabf76e47b828867aa31eab45db0808fa7899a9
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Wed Jun 2 12:41:00 2021 +1000
+
+    data dictionary
+    
+    link
+
+commit 28e4d1b16d6e5657a6190b92d9b85d2c0f4bead0
+Merge: d97b952 507cb5c
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Wed Jun 2 12:35:54 2021 +1000
+
+    Merge branch 'main' of https://github.com/jxmeslukin/stock-app into main
+
+commit d97b952286169a8e1811b2f5b281419e7fc694a4
+Author: zxclt1 <82993799+zxclt1@users.noreply.github.com>
+Date:   Wed Jun 2 12:35:11 2021 +1000
+
+    Create data dictionary.xlsx
+
 commit 3422131c13994669098263ac82f587adaff22f87
 Author: jxmeslukin <jimmy.lukin@gmail.com>
 Date:   Wed Jun 2 12:19:26 2021 +1000
