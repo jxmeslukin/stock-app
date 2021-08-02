@@ -100,11 +100,11 @@ ul {
   }
   
   .sumtext {
-    line-height:1px;
+    line-height:2px;
     float: left;
     text-align: center;
     color: white;
-    padding-left: 4%;
+    padding-left: 6%;
   }
 
   .search {
@@ -171,4 +171,14 @@ ul {
     text-decoration: black;
     margin-left: auto;
 
+  }
+
+  .title {
+    text-align: center;
+    margin: auto;
+  }
+
+  .click {
+    color: lightcoral;
+    cursor: pointer;
   }
