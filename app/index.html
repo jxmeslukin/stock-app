@@ -11,8 +11,6 @@
     <body>
         <ul>
             <li><a class="active textA" href="#home">Home</a></li>
-            <li><a href="#trades" class="textA">Trades</a></li>
-            <li><a href="#contact" class="textA">Companies</a></li>
             <li style="float:right"><a href="pages/about.html"><img src="resources/red globe.png" height="40px" width="40px"></a></li>
             <li><input type="text" class="search" placeholder="Find a stock.." id="search"></li>
           </ul>
@@ -21,15 +19,21 @@
 
         <main id="boxes">
 
+            <h1 class="abth1">Stratton Oakmont</h1>
+            <div class="typewriter">
+                <h5 class="typewriter">more than a simulation</h5> 
+            </div>
+            <br>
+
         <section>
                 <div class="sumbox">
-                <h3 class="sumtext">Summary:</h3>
+                <h2 class="sumtext">Summary:</h2>
                 <h4 class="sumtext">Money:</h4>
                 <h5 id="mon" class="sumtext"></h5>
-                <h4 class="sumtext">Money Invested:</h4>
-                <h5 id="monInv" class="sumtext"></h5>
-                <h4 class="sumtext">Portfolio Value:</h4>
-                <h5 id="portVal" class="sumtext"></h5>
+                <h4 class="sumtext">Current +/-</h4>
+                <h5 id="posNeg" class="sumtext"></h5>
+                <h4 class="sumtext click"><a onclick="reset()">Click me to Restart!</a></h4>
+                <h5 id="favStock" class="sumtext"></h5>
             </div>
         </section>
 
@@ -110,12 +114,7 @@
                 <button onclick="buy(9)">Buy</button>
             </div>
         </section>
-
-        <button onclick="reset()"></button>
-        </main>
-
-
-
+        
         <script src="js/script.js"></script>
         <script src="js/graph.js"></script>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>

@@ -109,7 +109,6 @@ function setUp() {
     }
     $('#mon').html(formatter.format(simData.money));
     $('#monInv').html(formatter.format(simData.moneyInvested));
-    $('#portVal').html(formatter.format(simData.portfolioVal));
 
     start();
 }
@@ -129,25 +128,16 @@ function start() {
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "green")
             $('#val' + id).html(formatter.format(stockPrice));
-            simData.portfolioVal = Number(simData.portfolioVal) + (Number(simData.listedCompanies[i].values - Number(simData.listedCompanies[i].buyIn)));
-            $('#portVal').html(formatter.format(simData.portfolioVal));
-
+            posNegCheck();
             // port val - current changed value
             // invest val - static money put in or taken out 
-
-            //data.values.push
-
-
-
-
         } else {
             //decreases the stock price by $0 (not inclusive) to $1000
             stockPrice = Number(stockPrice) - Number((Math.round(((Math.random() * 1000) + 1) * 10) / 10))
             simData.listedCompanies[i].values = Number(stockPrice)
             $('#val' + id).css("color", "red")
             $('#val' + id).html(formatter.format(stockPrice));
-            simData.portfolioVal = (Number(simData.listedCompanies[i].amountOfStock) * Number(simData.listedCompanies[i].values)) + Number(simData.portfolioVal)
-            $('#portVal').html(formatter.format(simData.portfolioVal));
+            posNegCheck();
         }
     }
     setTimeout(start, 7000)
@@ -156,34 +146,12 @@ function start() {
 //resets the localstorage object - restarting the simulation after refresh
 function reset() {
     localStorage.removeItem(storageIdentifier, JSON.stringify(simData))
+    location.reload();
 }
 
 //buys the stock at the current market price
 function buy(stock) {
 
-    /*
-    console.log(simData.listedCompanies[stock].name)
-    console.log(simData.listedCompanies[stock].values)
-    simData.money = Number(simData.money) - Number(simData.listedCompanies[stock].values)
-    simData.listedCompanies[stock].push({
-        amountOfStock : []
-    })
-    simData.listedCompanies[stock].amountOfStock = simData.listedCompanies[stock].amountOfStock + 1
-    simData.trades.push({ 
-        identifier : stock,
-        name : simData.listedCompanies[stock].name,
-        buyVal : simData.listedCompanies[stock].values,
-        sellVal : [],
-    })
-
-    
-    var stockAdd = 0;
-    simData.money = Number(simData.money) - Number(simData.listedCompanies[stock].values)
-    stockAdd = Number(simData.listedCompanies[stock].amountOfStock)
-    stockAdd = stockAdd + 1
-    simData.listedCompanies[stock].amountOfStock = stockAdd
-    console.log(simData.listedCompanies[stock].amountOfStock)
-*/
 
     // defining if the user has enough money to buy the stock
     if (simData.money > simData.listedCompanies[stock].values) {
@@ -218,7 +186,6 @@ function buy(stock) {
 
         $('#mon').html(formatter.format(simData.money));
         $('#monInv').html(formatter.format(simData.moneyInvested));
-        $('#portVal').html(formatter.format(simData.portfolioVal));
 
 
     } else {
@@ -229,16 +196,6 @@ function buy(stock) {
 
 //sells the stock at the current market price
 function sell(stock) {
-    /*
-    if((simData.trades[stock].name == simData.listedCompanies[stock].name) && simData.trades[stock].amountOfStock > 0) {
-    simData.money = Number(simData.money) + Number(simData.listedCompanies[stock].values)
-    simData.trades[stock].amountOfStock = Number(simData.trades[stock].amountOfStock) - 1
-    simData.trades[stock].sellVal = [simData.listedCompanies[stock].values]
-    console.log(simData.money)
-    }else{
-        console.log("have not bought")
-    }
-    */
 
     //if the user owns more than 0 stock, they are enabled to sell it
     if (simData.listedCompanies[stock].amountOfStock > 0) {
@@ -249,7 +206,6 @@ function sell(stock) {
         localStorage.setItem(storageIdentifier, JSON.stringify(simData))
         $('#mon').html(formatter.format(simData.money));
         $('#monInv').html(formatter.format(simData.moneyInvested));
-        $('#portVal').html(formatter.format(simData.portfolioVal));
     } else {
         alert("You have not bought this stock!")
     }
@@ -320,4 +276,16 @@ function insertionSort(inputArr) {
         inputArr[j + 1] = current;
     }
     return inputArr;
+}
+
+function posNegCheck() {
+    if((Number(simData.money)) > 50000){
+        $('#posNeg').html("Profit");
+        $('#posNeg').css("color", "green");
+    }
+    else {
+        $('#posNeg').html("Loss");
+        $('#posNeg').css("color", "red");
+    }
+    
 }
