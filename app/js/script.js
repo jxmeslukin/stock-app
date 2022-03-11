@@ -140,7 +140,7 @@ function start() {
             posNegCheck();
         }
     }
-    setTimeout(start, 7000)
+    setTimeout(start, 2000)
 }
 
 //resets the localstorage object - restarting the simulation after refresh
